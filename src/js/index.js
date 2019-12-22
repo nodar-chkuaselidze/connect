@@ -21,6 +21,7 @@ import {
     disableWebUSB,
     cancel,
     dispose,
+    stop,
 } from './env/node';
 
 class TrezorConnect {
@@ -293,6 +294,10 @@ class TrezorConnect {
 
     static disableWebUSB = async () => {
         disableWebUSB();
+    }
+
+    static stop = async () => {
+        return stop();
     }
 }
 

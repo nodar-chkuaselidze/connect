@@ -951,6 +951,17 @@ export const initTransport = async (settings: ConnectSettings) => {
     }
 };
 
+export const stop = async () => {
+    if (_deviceList) {
+        _deviceList.stop();
+    }
+    // _core = null; // Class with event emitter
+    // _deviceList = null; // Instance of DeviceList
+    // _popupPromise = null; // Waiting for popup handshake
+    // _uiPromises = []; // Waiting for ui response
+    // _preferredDevice = null; // TODO: type
+};
+
 const disableWebUSBTransport = async () => {
     if (!_deviceList) return;
     if (_deviceList.transportType() !== 'webusb') return;

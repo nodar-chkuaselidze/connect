@@ -264,6 +264,11 @@ export default class DeviceList extends EventEmitter {
             }
         });
     }
+
+    stop() {
+        this.onBeforeUnload();
+        this.transport.stop();
+    }
 }
 
 /**

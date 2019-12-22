@@ -4,7 +4,7 @@ import EventEmitter from 'events';
 import { parse as parseSettings } from '../../data/ConnectSettings';
 import Log, { init as initLog } from '../../utils/debug';
 
-import { Core, init as initCore, initTransport } from '../../core/Core';
+import { Core, stop as stopCore, init as initCore, initTransport } from '../../core/Core';
 import { create as createDeferred } from '../../utils/deferred';
 
 import { CORE_EVENT, UI_EVENT, DEVICE_EVENT, RESPONSE_EVENT, TRANSPORT_EVENT, BLOCKCHAIN_EVENT } from '../../constants';
@@ -258,4 +258,8 @@ export const cancel = (error?: string) => {
 
 export const disableWebUSB = () => {
     throw new Error('This version of trezor-connect is not suitable to work without browser');
+};
+
+export const stop = () => {
+    stopCore();
 };
