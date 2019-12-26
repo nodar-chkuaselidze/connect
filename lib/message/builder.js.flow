@@ -1,0 +1,46 @@
+/* @flow */
+
+import { UI_EVENT, DEVICE_EVENT, TRANSPORT_EVENT, RESPONSE_EVENT, BLOCKCHAIN_EVENT } from '../constants';
+import type { CoreMessage } from '../types';
+
+export function UiMessage(type: string, payload: any) {
+    return {
+        event: UI_EVENT,
+        type,
+        payload,
+    };
+}
+
+export function DeviceMessage(type: string, payload: any): CoreMessage {
+    return {
+        event: DEVICE_EVENT,
+        type,
+        payload,
+    };
+}
+
+export function TransportMessage(type: string, payload: any): CoreMessage {
+    return {
+        event: TRANSPORT_EVENT,
+        type,
+        payload,
+    };
+}
+
+export function ResponseMessage(id: number, success: boolean, payload: any = null): CoreMessage {
+    return {
+        event: RESPONSE_EVENT,
+        type: RESPONSE_EVENT,
+        id,
+        success,
+        payload,
+    };
+}
+
+export function BlockchainMessage(type: string, payload: any): CoreMessage {
+    return {
+        event: BLOCKCHAIN_EVENT,
+        type,
+        payload,
+    };
+}

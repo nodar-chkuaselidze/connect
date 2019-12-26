@@ -1,0 +1,47 @@
+{
+  "name": "trezor-connect",
+  "version": "8.0.12-extended",
+  "author": "Trezor <info@trezor.io>",
+  "homepage": "https://github.com/trezor/connect",
+  "description": "High-level javascript interface for Trezor hardware wallet.",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/trezor/connect.git"
+  },
+  "bugs": {
+    "url": "https://github.com/trezor/connect/issues"
+  },
+  "keywords": [
+    "Trezor",
+    "trezor-connect",
+    "javascript"
+  ],
+  "main": "lib/index.js",
+  "browser": {
+    "./lib/env/node": "./lib/env/browser",
+    "./lib/env/node/workers": "./lib/env/browser/workers",
+    "./lib/env/node/networkUtils": "./lib/env/browser/networkUtils"
+  },
+  "react-native": {
+    "./lib/env/node": "./lib/env/react-native",
+    "./lib/env/node/workers": "./lib/env/react-native/workers",
+    "./lib/env/node/networkUtils": "./lib/env/react-native/networkUtils"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.7.2",
+    "events": "^3.0.0",
+    "whatwg-fetch": "^3.0.0",
+    "@trezor/blockchain-link": "^1.0.6",
+    "@trezor/utxo-lib": "0.1.0",
+    "bchaddrjs": "^0.4.4",
+    "bignumber.js": "^9.0.0",
+    "bowser": "^2.7.0",
+    "hd-wallet": "9.0.0",
+    "keccak": "^2.0.0",
+    "node-fetch": "^2.6.0",
+    "parse-uri": "^1.0.0",
+    "tiny-worker": "^2.3.0",
+    "trezor-link": "1.6.7"
+  }
+}
