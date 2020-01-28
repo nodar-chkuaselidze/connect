@@ -33,7 +33,7 @@ export default class CardanoGetPublicKey extends AbstractMethod {
 
         // create a bundle with only one batch if bundle doesn't exists
         this.hasBundle = Object.prototype.hasOwnProperty.call(message.payload, 'bundle');
-        const payload: Object = !this.hasBundle ? { ...message.payload, bundle: [ ...message.payload ] } : message.payload;
+        const payload: Object = !this.hasBundle ? { ...message.payload, bundle: [ message.payload ] } : message.payload;
 
         // validate bundle type
         validateParams(payload, [
@@ -79,7 +79,7 @@ export default class CardanoGetPublicKey extends AbstractMethod {
         }
 
         // request confirmation view
-        this.postMessage(new UiMessage(UI.REQUEST_CONFIRMATION, {
+        this.postMessage(UiMessage(UI.REQUEST_CONFIRMATION, {
             view: 'export-xpub',
             label,
         }));
@@ -108,7 +108,7 @@ export default class CardanoGetPublicKey extends AbstractMethod {
 
             if (this.hasBundle) {
                 // send progress
-                this.postMessage(new UiMessage(UI.BUNDLE_PROGRESS, {
+                this.postMessage(UiMessage(UI.BUNDLE_PROGRESS, {
                     progress: i,
                     response,
                 }));
